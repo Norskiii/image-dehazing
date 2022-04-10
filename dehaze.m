@@ -54,7 +54,7 @@ function J = dehaze(img_path)
     
     t = 1 - J_dark_norm + p;
     %% Refine transmission estimate with bilateral filter
-    w = 90;
+    w = 90; % window size for bilateral filter
     sigma_s = 3.5*w;
     sigma_r = 0.02;
    
@@ -90,7 +90,7 @@ function J = dehaze(img_path)
     close(h)
   
     %% Recover radiance    
-    K = 50; % used to distinguish between bright and dark channel areas, change manually
+    K = 50; % used to distinguish between bright and dark channel areas, change manually if needed
     t0 = 0.1; % transmission lower bound
     J = zeros(rows,cols, c);
     for i=1:rows
@@ -106,7 +106,7 @@ function J = dehaze(img_path)
             end
         end
     end
-    %J = (img - A) ./ max(t_refined, t0) + A;
+
     imwrite(J, 'dehazed.png')
     
     %% plots
