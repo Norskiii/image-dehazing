@@ -2,7 +2,11 @@
 Implementation of fast image dehazing algorithm described in _Fast image dehazing using improved dark channel prior_ [1]. The script uses vanilla bilateral filtering instead of a fast approxmination.
 
 ## Runinng
-Run dehaze.m script with haze image path as input. The script will save dehazing result in a file called 'dehazed.png' and also display input image, estimated transmission map, refined transmission map, and dehazed image.
+Run dehaze.m script with haze image path as input. For example:
+```
+dehaze('images/city.jpg')
+```
+The script will save dehazing result in a file called 'dehazed.png' and also display input image, estimated transmission map, refined transmission map, and dehazed image.
 
 ## References
 [1] H. Xu, J. Guo, Q. Liu and L. Ye, "Fast image dehazing using improved dark channel prior" 
